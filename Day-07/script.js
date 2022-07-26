@@ -1,15 +1,10 @@
-const boxes = document.querySelectorAll('.box');
-window.addEventListener('scroll',scrolling);
+const container = document.querySelector('.container');
+const left = document.querySelector('.left');
+const right = document.querySelector('.right');
 
-function scrolling() {
-  const triggerbottom = window.innerHeight * (4/5);
-  boxes.forEach(box => {
-     const boxtop
-       =box.getBoundingClientRect().top;
-    if(triggerbottom > boxtop){
-      box.classList.add('show');
-    }else{
-      box.classList.remove('show');
-    }
-  })
-}
+left.addEventListener('mouseenter', () =>
+  container.classList.add ('hover-left') );
+left.addEventListener('mouseleave', () =>
+  container.classList.remove ('hover-left') );
+right.addEventListener('mouseenter',() => container.classList.add ('hover-right'));
+right.addEventListener('mouseleave',() => container.classList.remove('hover-right'));
