@@ -44,10 +44,14 @@ textarea{
     color: whitesmoke;
     padding: 10px 50px;
     border-radius: 50px;
-    display :inline-block
+    display :inline-block;
+    margin: 0 5px;
+
+
     
 }
 
 .tag.highlight{
-    background-color: lightskyblue;
+    background-color: red;
 }
+
