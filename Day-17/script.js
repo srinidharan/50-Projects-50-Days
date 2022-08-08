@@ -119,7 +119,7 @@ var selectedGenre =[];
                 }
             }
             console.log(selectedGenre);
-            getmovies(API_URL + '&with_genres=' +encodeURI(selectedGenre.join(',')))
+            getmovies(API_URL + '&with_genres=' + encodeURI(selectedGenre.join(',')))
             hightlightselection()
         })
         tagsEL.append(t);
@@ -135,6 +135,9 @@ function hightlightselection() {
     tags.forEach(tag => {
         tag.classList.remove('highlight');
     })
+    
+    clearbtn();
+
     if(selectedGenre.length !=0){
         selectedGenre.forEach(id => {
             const hightlightTag = document.getElementById(id);
@@ -143,12 +146,40 @@ function hightlightselection() {
     }
 }
 
+function clearbtn(){
+  let clearbtn =document.getElementById('clear');
+  if(clearbtn){
+    clearbtn.classList.add('highlight')
+  }
+  else{
+    let clear =document.createElement('div');
+    clear.classList.add('tag','hightlight');
+    clear.id ='clear';
+    clear.innerHTML = 'clear x';
+    clear.addEventListener('click',() => {
+      selectedGenre = [];
+      setGenre();
+      getmovies(API_URL);
+
+    })
+    tagsEL.append(clear);
+  }
+
+}
+
 getmovies(API_URL);
 
 function getmovies(url) {
     fetch(url).then(res => res.json()).then(data => {
         console.log(data.results);
-        showmovies(data.results);
+        if(data.results.length !== 0){
+          showmovies(data.results);
+        }else{
+          main.innerHTML= `<h1 class="no-results"> No Result Found </h1>`
+        }
+        
+        
+        
     })
 }
 
@@ -162,7 +193,7 @@ function showmovies(data) {
      movieEl.classList.add('movie');
       movieEl.innerHTML = `
         
-        <img src="${IMG_URL+poster_path}" 
+        <img src="${IMG_URL + poster_path} " 
         alt="${title}">
         
         <div class="movie-info">
@@ -198,6 +229,8 @@ form.addEventListener('submit' , (e) => {
     e.preventDefault();
 
     const searchTerm = search.value;
+    selectedGenre=[];
+    setGenre();
 
     if(searchTerm){
         getmovies(SearchURL + '&query=' + searchTerm); 
