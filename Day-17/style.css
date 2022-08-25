@@ -29,7 +29,7 @@ header{
 .search{
        background-color: transparent;
        border: 2px solid var(--primarycolor);
-       padding: 0.5rem  1rem;
+       padding: 0.5r;
        border-radius: 50px;
        font-size: inherit;
        color:#ffffff;
