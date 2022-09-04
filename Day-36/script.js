@@ -25,12 +25,12 @@ function setcolor(element){
 
 function removecolor(element) {
 
-    element.style.background = '#1d1d1d'
-    element.style.boxshadow = '0 0 2px #000'
+    element.style.background = '#1d1d1d';
+    element.style.boxshadow = '0 0 2px #000';
 
 }
 
 function getrandomcolor() {
-    return colors[Math.floor(Math.random() * colors.length)];
+    return colors[Math.floor(Math.random() * colors.length)]
 }
 
