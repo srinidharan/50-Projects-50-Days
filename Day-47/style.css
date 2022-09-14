@@ -5,7 +5,7 @@
 }
 
 body {
-   background-color: #f4f4f4;
+   background-color: whitesmoke;
    font-family: 'Monsteserrat', sans-serif;
    display: flex;
    align-items: center;
@@ -18,7 +18,7 @@ body {
 }
 
 .testomial-container{
-    background-color: #476ce4;
+    background-color: #7b2cbf;
     border-radius: 5px;
     margin: 20px auto;
     color: #fff;
@@ -107,5 +107,8 @@ body {
 
     .fa-quote{
         display: none;
+    }
+    .progress-bar{
+        top: 10px;
     }
 }
